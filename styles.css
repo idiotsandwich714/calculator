@@ -43,7 +43,7 @@ li {
     margin: 5px;
     background-color: grey;
     color: white;
-    font-size: large;
+    font-size: x-large;
 }
 
 ul {
@@ -56,6 +56,12 @@ ul {
     flex-basis: 75px;
 }
 
-.orange {
+.operator {
     background-color: orange;
+}
+
+.operatorClick {
+    background-color: white;
+    color: orange;
+    font-weight: bold;
 }
