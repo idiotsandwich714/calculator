@@ -26,4 +26,7 @@ function operate(num1, num2, operator) {
     }
 }
 
-console.log(operate(5, 5, '+'));
+const keys = document.querySelectorAll('.row');
+keys.addEventListener('click', event => {
+    console.log(event.target);
+})
