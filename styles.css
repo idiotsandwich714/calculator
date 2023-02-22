@@ -1,0 +1,80 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.calculator {
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.screen {
+    display: flex;
+    justify-content: right;
+    align-items: last baseline;
+    background-color: black;
+    color: white;
+    width: 16.25rem;
+    height: 6rem;
+    padding: .75rem;
+    font-size: xxx-large;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-areas:
+        "clear . . divide"
+        "seven eight nine multiply"
+        "four five six minus"
+        "one two three plus"
+        "zero zero decimal equals";
+    background-color: black;
+    height: 20rem;
+}
+
+.zero {
+    grid-area: zero;
+}
+
+button {
+    border: none;
+    border-radius: 40px;
+    color: white;
+    margin: 5px;
+    font-size: large;
+}
+
+.number:hover,
+.number:focus {
+    background-color: lightgrey;
+}
+
+.operator:hover,
+.operator:focus {
+    background-color: white;
+    color: orange;
+}
+
+.clear:hover,
+.clear:focus,
+.empty:hover,
+.empty:focus {
+    background-color: darkgrey;
+}
+
+.clear,
+.empty {
+    background-color: lightgrey;
+    color: black;
+}
+
+.number {
+    background-color: grey;
+}
+
+.operator {
+    background-color: orange;
+}

@@ -26,7 +26,7 @@ function operate(num1, num2, operator) {
     }
 }
 
-const keys = document.querySelectorAll('.row');
+const keys = document.querySelector('.buttons');
 keys.addEventListener('click', event => {
     console.log(event.target);
 })
