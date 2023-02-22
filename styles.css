@@ -31,7 +31,7 @@ body {
     font-size: xx-large;
 }
 
-li {
+button {
     display: flex;
     list-style: none;
     flex: 1;
@@ -44,9 +44,10 @@ li {
     background-color: grey;
     color: white;
     font-size: x-large;
+    border: white;
 }
 
-ul {
+.row {
     display: flex; 
     margin: 0px;
     padding: 0px;
@@ -58,10 +59,4 @@ ul {
 
 .operator {
     background-color: orange;
-}
-
-.operatorClick {
-    background-color: white;
-    color: orange;
-    font-weight: bold;
 }
