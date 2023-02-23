@@ -72,3 +72,4 @@ clear.addEventListener('click', () => {
 
 // Next Steps:
 // Display result if an operator is selected again after the second number input and continue calculation
+// Keyboard functionality
