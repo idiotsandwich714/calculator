@@ -1,30 +1,3 @@
-function add(a, b) {
-    return a + b;
-}
-
-function subtract(a, b) {
-    return a - b;
-}
-
-function multiply(a, b) {
-    return a * b;
-}
-
-function divide(a, b) {
-    return a / b;
-}
-
-function operate(num1, num2, operator) {
-    if (operator === '+') {
-        return add(num1, num2);
-    } else if (operator === '-') {
-        return subtract(num1, num2);
-    } else if (operator === '*') {
-        return multiply(num1, num2);
-    } else if (operator === '/') {
-        return divide(num1, num2);
-    }
-}
 
 
 const calculator = document.querySelector('.calculator')
@@ -60,20 +33,44 @@ keys.addEventListener('click', event => {
         const operatorKeys = keys.querySelectorAll('[data-type="operator"]');
         operatorKeys.forEach(element => element.dataset.state = '');
         key.dataset.state = 'selected';
+
+        calculator.dataset.firstNumber = tapeValue;
+        calculator.dataset.operator = key.dataset.key;
     }
 
     if (type === 'equals') {
+        // Perform the calculation and display the result on the screen
+        const firstNumber = calculator.dataset.firstNumber;
+        const operator = calculator.dataset.operator;
+        const secondNumber = tapeValue;
+        tape.textContent = operate(firstNumber, operator, secondNumber);
+        
+        // Removes highlight from last selected operator key
         const operatorKeys = keys.querySelectorAll('[data-type="operator"]');
         operatorKeys.forEach(element => element.dataset.state = '');
-
-        // const firstNumber;
-        // const secondNumber = tapeValue;
     }
     calculator.dataset.previousKeyType = type;
 })
 
-const clear = document.querySelector('.clear');
+function operate (num1, operator, num2) {
+    if (operator === 'plus') {
+        return +num1 + +num2;
+    } else if (operator === 'minus') {
+        return +num1 - +num2;
+    } else if (operator === 'multiply') {
+        return +num1 * +num2;
+    } else if (operator === 'divide') {
+        return +num1 / +num2;
+    }
+}
 
+const clear = document.querySelector('.clear');
 clear.addEventListener('click', () => {
     tape.textContent = '0';
+
+    // Removes highlight from last selected operator key
+    const operatorKeys = keys.querySelectorAll('[data-type="operator"]');
+    operatorKeys.forEach(element => element.dataset.state = '');
 })
+
+
