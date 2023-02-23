@@ -1,9 +1,6 @@
-
-
 const calculator = document.querySelector('.calculator')
 const keys = calculator.querySelector('.buttons');
 const tape = calculator.querySelector('.screen');
-let operands = [];
 
 keys.addEventListener('click', event => {
     if (!event.target.closest('button')) return
@@ -54,13 +51,13 @@ keys.addEventListener('click', event => {
 
 function operate (num1, operator, num2) {
     if (operator === 'plus') {
-        return +num1 + +num2;
+        return Math.round((+num1 + +num2) * 10000) / 10000;
     } else if (operator === 'minus') {
-        return +num1 - +num2;
+        return Math.round((+num1 - +num2) * 10000) / 10000;
     } else if (operator === 'multiply') {
-        return +num1 * +num2;
+        return Math.round((+num1 * +num2) * 10000) / 10000;
     } else if (operator === 'divide') {
-        return +num1 / +num2;
+        return Math.round((+num1 / +num2) * 10000) / 10000;
     }
 }
 
@@ -73,4 +70,5 @@ clear.addEventListener('click', () => {
     operatorKeys.forEach(element => element.dataset.state = '');
 })
 
-
+// Next Steps:
+// Display result if an operator is selected again after the second number input and continue calculation
