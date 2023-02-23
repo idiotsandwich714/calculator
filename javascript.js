@@ -30,6 +30,7 @@ function operate(num1, num2, operator) {
 const calculator = document.querySelector('.calculator')
 const keys = calculator.querySelector('.buttons');
 const tape = calculator.querySelector('.screen');
+let operands = [];
 
 keys.addEventListener('click', event => {
     if (!event.target.closest('button')) return
@@ -37,15 +38,16 @@ keys.addEventListener('click', event => {
 
     const key = event.target;
     const keyValue = key.textContent;
+    const tapeValue = tape.textContent;
     const type = key.dataset.type;
     const previousKeyType = calculator.dataset.previousKeyType;
 
     if (key.classList.contains('empty')) {
-        tape.textContent = 'UwU';
+        tape.textContent = 'UwUwUwU';
     }
 
     if (type === 'number') {
-        if (tape.textContent === '0') {
+        if (tapeValue === '0') {
             tape.textContent = keyValue;
         } else if (previousKeyType === 'operator') {
             tape.textContent = keyValue;
@@ -54,6 +56,19 @@ keys.addEventListener('click', event => {
         }
     } 
 
+    if (type === 'operator') {
+        const operatorKeys = keys.querySelectorAll('[data-type="operator"]');
+        operatorKeys.forEach(element => element.dataset.state = '');
+        key.dataset.state = 'selected';
+    }
+
+    if (type === 'equals') {
+        const operatorKeys = keys.querySelectorAll('[data-type="operator"]');
+        operatorKeys.forEach(element => element.dataset.state = '');
+
+        // const firstNumber;
+        // const secondNumber = tapeValue;
+    }
     calculator.dataset.previousKeyType = type;
 })
 

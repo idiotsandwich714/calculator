@@ -51,11 +51,6 @@ button {
     background-color: lightgrey;
 }
 
-[data-type='operator']:hover {
-    background-color: white;
-    color: orange;
-}
-
 .clear:hover,
 .empty:hover {
     background-color: darkgrey;
@@ -71,6 +66,14 @@ button {
     background-color: grey;
 }
 
-[data-type='operator'] {
+[data-type='operator'],
+[data-type='equals'] {
     background-color: orange;
+}
+
+[data-type='operator']:hover,
+[data-type='equals']:hover,
+[data-state='selected'] {
+    background-color: white;
+    color: orange;
 }
