@@ -47,21 +47,17 @@ button {
     font-size: large;
 }
 
-.number:hover,
-.number:focus {
+[data-type='number']:hover {
     background-color: lightgrey;
 }
 
-.operator:hover,
-.operator:focus {
+[data-type='operator']:hover {
     background-color: white;
     color: orange;
 }
 
 .clear:hover,
-.clear:focus,
-.empty:hover,
-.empty:focus {
+.empty:hover {
     background-color: darkgrey;
 }
 
@@ -71,10 +67,10 @@ button {
     color: black;
 }
 
-.number {
+[data-type='number'] {
     background-color: grey;
 }
 
-.operator {
+[data-type='operator'] {
     background-color: orange;
 }
